@@ -1,0 +1,25 @@
+services:
+  tado_aa:
+    build: .
+    image: tado_aa:local
+    container_name: tado_aa
+    restart: unless-stopped
+    # Debe coincidir con el dueño de ./data en el servidor (id -u / id -g).
+    user: "${PUID:-1000}:${PGID:-1000}"
+    env_file:
+      - .env
+    environment:
+      TADO_DATA_DIR: /data
+    volumes:
+      - ./data:/data
+    # Endurecimiento: sin puertos, sin privilegios y con el sistema de ficheros
+    # del contenedor en solo lectura (solo se escribe en /data).
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 128m
+    pids_limit: 64
