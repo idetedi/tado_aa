@@ -1,0 +1,13 @@
+# Secretos y datos de ejecución: NUNCA deben subirse al repositorio.
+.env
+data/
+refresh_token
+*.log
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/

@@ -1,0 +1,4 @@
+# Solo hacen falta requirements.txt y tado_aa.py para construir la imagen.
+*
+!requirements.txt
+!tado_aa.py

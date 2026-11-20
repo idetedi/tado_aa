@@ -1,0 +1,4 @@
+# Fixed versions: python-tado changes its API between releases (0.19 broke 0.18 code).
+python-tado==0.19.4
+# Time zone data for TZ= on systems/images that do not ship it.
+tzdata==2025.2
